@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">My Task Manager</string>
+
+    <string name="login">Логин</string>
+    <string name="button_login">Вход</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтверждение пароля</string>
+    <string name="registration">Регистрация</string>
+
+    <string name="save">СОХРАНИТЬ</string>
+
+    <string name="all_day">Целый день</string>
+    <string name="time_beg">С</string>
+    <string name="time_end">До</string>
+    <string name="task_name">Название мероприятия</string>
+    <string name="task_description">Описание</string>
+    <string name="task_periodicity">Не повторяется</string>
+    <string name="task_color">Цвет</string>
+
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="title_activity_schedule">Расписание</string>
+
+    <string name="logout">Выход</string>
+    <string name="profile">Профиль</string>
+    <string name="settings">Настройки</string>
+
+    <string name="title_login">Сохранять логин</string>
+    <string name="summary_login">Сохранять логин</string>
+
+    <string name="title_password">Сохранять пароль</string>
+    <string name="summary_password">Сохранять пароль</string>
+
+    <string name="title_synchronization">Синхронизировать с Google Calendar</string>
+    <string name="summary_synchronization">Синхронизировать Ваши задачи с Google Calendar</string>
+
+    <string name="title_save_language">Выбрать язык приложения</string>
+
+
+    <string-array name="array_languages">
+        <item>Русский</item>
+        <item>Английский</item>
+    </string-array>
+    <string name="title_activity_settings">Settings</string>
+
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorAccentMy">#FF7043</color>
+    <color name="colorPrimaryMy">#90A4AE</color>
+    <color name="colorPrimaryDarkMy">#62757F</color>
+    <color name="colorWhiteText">#FFFFFF</color>
+
+    <!--3-й цвет 200-->
+    <color name="colorPinkTask">#F48FB1</color>
+    <color name="colorPurpleTask">#CE93D8</color>
+    <color name="colorNavyTask">#9fa8da</color>
+    <color name="colorBlueTask">#81d4fa</color>
+    <color name="colorGreenTask">#81c784</color>
+    <color name="colorYellowTask">#fff176</color>
+    <color name="colorOrangeTask">#ffb74d</color>
+    <color name="colorRedTask">#ef5350</color>
+
+
+    <color name="colorYellowYellow">#ffff30</color>
+
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="save_login"
+        android:title="@string/title_login"
+        android:summary="@string/summary_login">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="save_password"
+        android:title="@string/title_password"
+        android:summary="@string/summary_password">
+    </CheckBoxPreference>
+
+    <CheckBoxPreference
+        android:key="synchronization"
+        android:title="@string/title_synchronization"
+        android:summary="@string/summary_synchronization">
+    </CheckBoxPreference>
+
+    <ListPreference
+        android:key="language_preference"
+        android:title="@string/title_save_language"
+        android:entries="@array/array_languages"
+        android:entryValues="@array/array_languages">
+    </ListPreference>
+
+</PreferenceScreen>
