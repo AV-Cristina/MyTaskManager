@@ -20,6 +20,8 @@ import java.util.List;
 
 public class UserManager{
 
+    private static final Integer unsuccessful_login_limit = 5;
+
     private static MyTaskManagerDBHelper mDBHelper;
 
     private UserManager(){
@@ -86,15 +88,16 @@ public class UserManager{
 
                 else if (!validPassword.equals(password)) {
                     // увеличение количества неуспешных попыток входа
-                    updateUser(user_id, isActive, unsuccessful_login_count);//
+                    unsuccessful_login_count++;
+                    updateUser(user_id, isActive, unsuccessful_login_count);
                     throw new IllegalArgumentException("Введен неверный пароль");}
                 else {
-                    user = new User();
-                    user.setId(user_id);
-                    user.setLogin(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_LOGIN)));
-                    user.setPassword(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_PASSWORD)));
-                    user.setUnsuccessful_login_count(unsuccessful_login_count);
-                    user.setActive(isActive);
+                      user = new User();
+                      user.setId(user_id);
+                      user.setLogin(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_LOGIN)));
+                      user.setPassword(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_PASSWORD)));
+                      user.setUnsuccessful_login_count(unsuccessful_login_count);
+                      user.setActive(isActive);
                 }
             }
             else throw new IllegalArgumentException("Пользователь " + login + " не зарегистрирован в системе");
@@ -133,9 +136,10 @@ public class UserManager{
                 User user = new User();
                 user.setId(Integer.parseInt(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry._ID))));
                 user.setLogin(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_LOGIN)));
-                user.setLogin(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_PASSWORD)));
+                user.setPassword(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_PASSWORD)));
                 Integer isActive = Integer.parseInt(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_ISACTIVE)));
                 user.setActive(isActive == 1 ? true : false);
+                user.setUnsuccessful_login_count(Integer.parseInt(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_UNSUCCESSFUL_LOGIN_COUNT))));
                 userList.add(user);
                 //Toast.makeText(this, user.getLogin(), Toast.LENGTH_SHORT).show();
             } while (c.moveToNext());
@@ -154,14 +158,14 @@ public class UserManager{
         if (unsuccessful_login_count != null){
             values.put(MyTaskManagerContract.UserEntry.COLUMN_UNSUCCESSFUL_LOGIN_COUNT, unsuccessful_login_count);
             // блокировка пользователя, если кол-во неуспешных попыток достигло 5
-            if (unsuccessful_login_count == 5)
+            if (unsuccessful_login_count == unsuccessful_login_limit)
             {
                 values.put(MyTaskManagerContract.UserEntry.COLUMN_ISACTIVE,
                         MyTaskManagerContract.UserEntry.INACTIVE);
             }
         }
         // разблокировка пользователя
-        else if (isActive){
+        else if (!isActive){
             values.put(MyTaskManagerContract.UserEntry.COLUMN_UNSUCCESSFUL_LOGIN_COUNT, 0);
             values.put(MyTaskManagerContract.UserEntry.COLUMN_ISACTIVE,
                     MyTaskManagerContract.UserEntry.ACTIVE);
