@@ -1,15 +1,13 @@
-package com.course.innopolis.mytaskmanager.Control;
+package com.course.innopolis.mytaskmanager.controls;
 
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import com.course.innopolis.mytaskmanager.Model.User;
-import com.course.innopolis.mytaskmanager.Model.data.MyTaskManagerContract;
-import com.course.innopolis.mytaskmanager.Model.data.MyTaskManagerDBHelper;
+import com.course.innopolis.mytaskmanager.models.User;
+import com.course.innopolis.mytaskmanager.models.data.MyTaskManagerContract;
+import com.course.innopolis.mytaskmanager.models.data.MyTaskManagerDBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,7 +139,6 @@ public class UserManager{
                 user.setActive(isActive == 1 ? true : false);
                 user.setUnsuccessful_login_count(Integer.parseInt(c.getString(c.getColumnIndex(MyTaskManagerContract.UserEntry.COLUMN_UNSUCCESSFUL_LOGIN_COUNT))));
                 userList.add(user);
-                //Toast.makeText(this, user.getLogin(), Toast.LENGTH_SHORT).show();
             } while (c.moveToNext());
         }
         return userList;

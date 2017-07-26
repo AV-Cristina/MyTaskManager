@@ -1,4 +1,4 @@
-package com.course.innopolis.mytaskmanager.Model.data;
+package com.course.innopolis.mytaskmanager.models.data;
 
 import android.provider.BaseColumns;
 

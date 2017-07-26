@@ -1,4 +1,4 @@
-package com.course.innopolis.mytaskmanager.Model;
+package com.course.innopolis.mytaskmanager.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

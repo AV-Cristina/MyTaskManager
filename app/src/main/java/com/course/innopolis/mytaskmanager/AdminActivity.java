@@ -2,29 +2,40 @@ package com.course.innopolis.mytaskmanager;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.course.innopolis.mytaskmanager.Control.UserManager;
-import com.course.innopolis.mytaskmanager.Model.User;
+import com.course.innopolis.mytaskmanager.adapters.UserAdapter;
+import com.course.innopolis.mytaskmanager.controls.UserManager;
+import com.course.innopolis.mytaskmanager.models.User;
 
 import java.util.List;
 
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity implements OnListItemCallback{
 
-    TextView tv1;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        tv1 = (TextView)findViewById(R.id.tv1);
+        mRecyclerView = (RecyclerView) findViewById(R.id.users_recycler_view);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         UserManager um = UserManager.getInstance();
 
         // Получение списка пользователей
         List<User> users = um.getAllUsers();
+
+        mAdapter = new UserAdapter(this, users, this);
+        mRecyclerView.setAdapter(mAdapter);
+
         for (User user : users) {
             String s = "id: " + user.getId() + " , Login: " + user.getLogin()
                     + " Pas: " + user.getPassword()
@@ -32,6 +43,12 @@ public class AdminActivity extends AppCompatActivity {
                     + " Active: " + user.getActive();
             Log.i("LOG ", s);
         }
+    }
+
+
+
+    @Override
+    public void onClick(User user) {
 
     }
 }

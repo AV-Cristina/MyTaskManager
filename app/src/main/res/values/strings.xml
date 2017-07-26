@@ -43,6 +43,7 @@
         <item>Английский</item>
     </string-array>
     <string name="title_activity_settings">Settings</string>
+    <string name="status">Статус</string>
 
 
 </resources>

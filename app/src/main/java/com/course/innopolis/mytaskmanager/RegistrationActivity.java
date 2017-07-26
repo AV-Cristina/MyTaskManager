@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.course.innopolis.mytaskmanager.Control.UserManager;
+import com.course.innopolis.mytaskmanager.controls.UserManager;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

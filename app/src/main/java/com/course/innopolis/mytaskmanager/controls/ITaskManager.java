@@ -1,6 +1,6 @@
-package com.course.innopolis.mytaskmanager.Control;
+package com.course.innopolis.mytaskmanager.controls;
 
-import com.course.innopolis.mytaskmanager.Model.Task;
+import com.course.innopolis.mytaskmanager.models.Task;
 
 import java.util.List;
 

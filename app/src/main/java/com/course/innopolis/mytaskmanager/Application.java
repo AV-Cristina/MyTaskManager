@@ -1,6 +1,6 @@
 package com.course.innopolis.mytaskmanager;
 
-import com.course.innopolis.mytaskmanager.Model.data.MyTaskManagerDBHelper;
+import com.course.innopolis.mytaskmanager.models.data.MyTaskManagerDBHelper;
 
 /**
  * Created by Cristina on 16.07.2017.

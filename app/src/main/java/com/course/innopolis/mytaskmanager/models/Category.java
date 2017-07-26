@@ -1,4 +1,4 @@
-package com.course.innopolis.mytaskmanager.Model;
+package com.course.innopolis.mytaskmanager.models;
 
 /**
  * Created by Cristina on 12.07.2017.

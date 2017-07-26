@@ -1,9 +1,8 @@
-package com.course.innopolis.mytaskmanager.Model.data;
+package com.course.innopolis.mytaskmanager.models.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 /**
  * Created by Cristina on 11.07.2017.

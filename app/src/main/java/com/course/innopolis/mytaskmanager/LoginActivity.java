@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.course.innopolis.mytaskmanager.Control.UserManager;
-import com.course.innopolis.mytaskmanager.Model.User;
+import com.course.innopolis.mytaskmanager.controls.UserManager;
+import com.course.innopolis.mytaskmanager.models.User;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -73,8 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
-
-
             }
         });
 
